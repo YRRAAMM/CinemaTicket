@@ -26,7 +26,7 @@ class HomeViewModel @Inject constructor() : ViewModel() {
         try {
             _state.update { it.copy(movies = MoviesData.newShowingMovies(), isLoading = false) }
         } catch (e : Exception) {
-            _state.update { it.copy(error = true, isLoading = false) }
+            _state.update { it.copy(error = "something went wrong pleas try again", isLoading = false) }
         }
     }
 

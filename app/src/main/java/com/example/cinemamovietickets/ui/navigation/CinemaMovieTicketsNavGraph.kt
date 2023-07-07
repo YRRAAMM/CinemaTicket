@@ -29,12 +29,12 @@ fun CinemaMovieTicketsNavGraph(navController: NavHostController, modifier: Modif
     }
 }
 
-//fun NavController.showingBack(): Boolean {
-//    return when (this.currentBackStackEntry?.destination?.route) {
-//        Screen.Profile.screen_route,
-//        Screen.Search.screen_route,
-//        Screen.Tickets.screen_route,
-//        Screen.Home.screen_route -> false
-//        else -> true
-//    }
-//}
+fun NavController.showingBack(): Boolean {
+    return when (this.currentBackStackEntry?.destination?.route) {
+        Screen.Profile.screen_route,
+        Screen.Search.screen_route,
+        Screen.Tickets.screen_route,
+        Screen.Home.screen_route -> false
+        else -> true
+    }
+}
