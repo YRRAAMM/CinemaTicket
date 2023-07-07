@@ -15,11 +15,11 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import coil.compose.rememberAsyncImagePainter
+import com.example.cinemamovietickets.R
 import com.example.cinemamovietickets.ui.composable.ExitIcon
 import com.example.cinemamovietickets.ui.navigation.Screen
 import com.example.cinemamovietickets.ui.screens.ticket.ticket_composable.BottomSheet
@@ -29,7 +29,6 @@ import com.example.cinemamovietickets.ui.theme.BlackBackground
 import com.example.cinemamovietickets.ui.theme.Gray
 import com.example.cinemamovietickets.ui.theme.Orange80
 import com.example.cinemamovietickets.viewmodels.ticket.uistate.TicketUIState
-import com.example.cinemamovietickets.viewmodels.ticket.TicketViewModel
 
 @Composable
 fun TicketScreen(
@@ -38,6 +37,7 @@ fun TicketScreen(
     viewModel: TicketViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
+
     TicketContent( modifier, state) {
         navController.popBackStack(Screen.Home.screen_route, false)
     }
@@ -69,7 +69,7 @@ fun TicketContent(
                 .padding(top = 8.dp, bottom = 16.dp)
                 .fillMaxHeight(0.15f),
             painter = rememberAsyncImagePainter(model = state.image),
-            contentDescription = "Header Image",
+            contentDescription = null,
         )
         
         CinemaChairs()
@@ -80,20 +80,10 @@ fun TicketContent(
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            ChairState(text = "Available", circleTint = Color.White)
-            ChairState(text = "Taken", circleTint = Gray)
-            ChairState(text = "Selected", circleTint = Orange80)
+            ChairState(text = R.string.available, circleTint = Color.White)
+            ChairState(text = R.string.taken, circleTint = Gray)
+            ChairState(text = R.string.selected, circleTint = Orange80)
         }
-
         BottomSheet(state)
-
     }
-
-
-}
-
-@Preview
-@Composable
-fun PreviewTicketContent() {
-
 }

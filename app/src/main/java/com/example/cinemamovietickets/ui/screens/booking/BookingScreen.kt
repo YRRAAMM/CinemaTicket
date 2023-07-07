@@ -13,10 +13,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import com.example.cinemamovietickets.ui.navigation.Screen
 import com.example.cinemamovietickets.ui.screens.booking.booking_composable.BottomSheet
-import com.example.cinemamovietickets.ui.screens.booking.booking_composable.Header
+import com.example.cinemamovietickets.ui.screens.booking.booking_composable.BookingImage
 import com.example.cinemamovietickets.ui.screens.ticket.navigateToTicketScreen
-import com.example.cinemamovietickets.viewmodels.booking.BookingUIState
-import com.example.cinemamovietickets.viewmodels.booking.BookingViewModel
 
 // todo fix the bottom sheet
 
@@ -35,12 +33,16 @@ fun BookingScreen(
 }
 
 @Composable
-private fun BookingContent(state: BookingUIState, closeButton: () -> Unit, onClickBuyTickets: () -> Unit) {
+private fun BookingContent(
+    state: BookingUIState,
+    closeButton: () -> Unit,
+    onClickBuyTickets: () -> Unit
+) {
 
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
         val (header , bottomSheet) = createRefs()
 
-        Header(
+        BookingImage(
             state = state,
             modifier = Modifier.constrainAs(header){
                 top.linkTo(parent.top)
@@ -61,7 +63,6 @@ private fun BookingContent(state: BookingUIState, closeButton: () -> Unit, onCli
             onButtonClicked = {
                 onClickBuyTickets()
             }
-
         )
     }
 }

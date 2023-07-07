@@ -13,7 +13,7 @@ import com.example.cinemamovietickets.ui.theme.Orange80
 
 
 @Composable
-fun HomeHeader() {
+fun AppBar() {
     Row(
         modifier = Modifier
             .fillMaxWidth()

@@ -2,7 +2,6 @@ package com.example.cinemamovietickets.ui.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.example.cinemamovietickets.ui.screens.booking.bookingRoute
@@ -26,15 +25,5 @@ fun CinemaMovieTicketsNavGraph(navController: NavHostController, modifier: Modif
         bookedTicketsRoute(navController = navController)
         bookingRoute(navHostController = navController)
         ticketRoute(navHostController = navController)
-    }
-}
-
-fun NavController.showingBack(): Boolean {
-    return when (this.currentBackStackEntry?.destination?.route) {
-        Screen.Profile.screen_route,
-        Screen.Search.screen_route,
-        Screen.Tickets.screen_route,
-        Screen.Home.screen_route -> false
-        else -> true
     }
 }

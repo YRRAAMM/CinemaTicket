@@ -19,10 +19,10 @@ import com.example.cinemamovietickets.R
 import com.example.cinemamovietickets.ui.composable.ExitIcon
 import com.example.cinemamovietickets.ui.composable.ImageButton
 import com.example.cinemamovietickets.ui.theme.Orange80
-import com.example.cinemamovietickets.viewmodels.booking.BookingUIState
+import com.example.cinemamovietickets.ui.screens.booking.BookingUIState
 
 @Composable
-fun Header(
+fun BookingImage(
     state: BookingUIState,
     modifier: Modifier = Modifier,
     onClickExit: () -> Unit,

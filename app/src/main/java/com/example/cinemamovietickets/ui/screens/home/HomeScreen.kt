@@ -22,13 +22,9 @@ import androidx.navigation.NavController
 import com.example.cinemamovietickets.ui.composable.verticalSpacer.VerticalSpacer32
 import com.example.cinemamovietickets.ui.screens.booking.navigateToBookingScreen
 import com.example.cinemamovietickets.ui.screens.home.home_composable.HomeBackgroundImage
-import com.example.cinemamovietickets.ui.screens.home.home_composable.HomeHeader
+import com.example.cinemamovietickets.ui.screens.home.home_composable.AppBar
 import com.example.cinemamovietickets.ui.screens.home.home_composable.MovieDetails
 import com.example.cinemamovietickets.ui.screens.home.home_composable.MoviePager
-import com.example.cinemamovietickets.viewmodels.home.HomeUIState
-import com.example.cinemamovietickets.viewmodels.home.HomeViewModel
-
-// todo handle the MovieDetails it already has the state
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -70,7 +66,7 @@ private fun HomeContent(
             item {
                 VerticalSpacer32()
 
-                HomeHeader()
+                AppBar()
             }
 
             item {
@@ -80,6 +76,7 @@ private fun HomeContent(
                     onItemClickListener(state.movies[pagerState.currentPage].id)
                 }
             }
+
             item {
                 MovieDetails(state, pagerState)
                 VerticalSpacer32()

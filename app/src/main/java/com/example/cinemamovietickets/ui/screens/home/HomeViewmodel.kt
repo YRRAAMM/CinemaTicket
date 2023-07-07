@@ -1,4 +1,4 @@
-package com.example.cinemamovietickets.viewmodels.home
+package com.example.cinemamovietickets.ui.screens.home
 
 import androidx.lifecycle.ViewModel
 import com.example.cinemamovietickets.data.datasource.local.fake.MoviesData

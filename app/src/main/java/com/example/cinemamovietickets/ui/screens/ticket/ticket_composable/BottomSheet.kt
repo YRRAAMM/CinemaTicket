@@ -1,5 +1,6 @@
 package com.example.cinemamovietickets.ui.screens.ticket.ticket_composable
 
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -20,10 +21,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cinemamovietickets.R
-import com.example.cinemamovietickets.ui.composable.ButtonBooking
+import com.example.cinemamovietickets.ui.composable.OrangeButton
 import com.example.cinemamovietickets.ui.composable.verticalSpacer.VerticalSpacer32
 import com.example.cinemamovietickets.ui.theme.Gray
 import com.example.cinemamovietickets.viewmodels.ticket.uistate.TicketUIState
@@ -33,6 +36,7 @@ fun BottomSheet(state: TicketUIState) {
 
     var selectedDate by remember { mutableStateOf("") }
     var selectedTime by remember { mutableStateOf("") }
+    val context = LocalContext.current
 
     Column(
         modifier = Modifier
@@ -41,6 +45,7 @@ fun BottomSheet(state: TicketUIState) {
             .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
             .background(Color.White)
     ) {
+
         LazyRow(
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             contentPadding = PaddingValues(top = 32.dp, end = 16.dp, start = 16.dp, bottom = 16.dp)
@@ -56,14 +61,15 @@ fun BottomSheet(state: TicketUIState) {
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             contentPadding = PaddingValues(horizontal = 16.dp)
         ) {
-            items(state.timeList) { item ->
-                TimeItem(time = item, isSelected = selectedTime == item) { date ->
+            items(state.timeList) { movieTime ->
+                TimeItem(time = movieTime, isSelected = selectedTime == movieTime) { date ->
                     selectedTime = if (selectedTime == date) "" else date
                 }
             }
         }
 
         VerticalSpacer32()
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -72,11 +78,11 @@ fun BottomSheet(state: TicketUIState) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Column(horizontalAlignment = Alignment.Start) {
-                Text(text = "$100", color = Color.Black, fontSize = 28.sp)
-                Text(text = "4 Tickets", color = Gray, fontSize = 12.sp)
+                Text(text = stringResource(R.string._10), color = Color.Black, fontSize = 28.sp)
+                Text(text = stringResource(R.string._1_tickets), color = Gray, fontSize = 12.sp)
             }
-            ButtonBooking(stringId = R.string.buy_tickets, width = 154 ) {
-
+            OrangeButton(stringId = R.string.buy_tickets) {
+                Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
             }
         }
     }

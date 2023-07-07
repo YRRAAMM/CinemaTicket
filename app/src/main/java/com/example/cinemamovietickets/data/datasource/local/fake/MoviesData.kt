@@ -19,6 +19,7 @@ object MoviesData {
                 movieTime = "1h 23m",
                 movieTypes = listOf("Action", "Crime", "Thriller"),
             ),
+
             MoviesModel(
                 id = 2,
                 imageUrl = "https://m.media-amazon.com/images/M/MV5BMTIzMDc4MzA2Ml5BMl5BanBnXkFtZTcwODU0MzA3MQ@@._V1_FMjpg_UX510_.jpg",
@@ -26,6 +27,7 @@ object MoviesData {
                 movieTime = "2h 13m",
                 movieTypes = listOf("Action", "Crime", "Drama"),
             ),
+
             MoviesModel(
                 id = 3,
                 imageUrl = "https://m.media-amazon.com/images/M/MV5BZTAwMzAxNDEtM2FiNC00ODY2LTk1ZTctOTkyNmJlMmE0Y2IzXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_FMjpg_UY703_.jpg",
@@ -33,7 +35,6 @@ object MoviesData {
                 movieTime = "5h 23m",
                 movieTypes = listOf("Drama", "War"),
             ),
-            
         )
     }
 }

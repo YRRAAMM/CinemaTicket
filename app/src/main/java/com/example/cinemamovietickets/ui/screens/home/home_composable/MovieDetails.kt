@@ -11,7 +11,6 @@ import androidx.compose.foundation.pager.PagerState
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
@@ -19,7 +18,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cinemamovietickets.R
 import com.example.cinemamovietickets.ui.composable.OutlineButton
-import com.example.cinemamovietickets.viewmodels.home.HomeUIState
+import com.example.cinemamovietickets.ui.screens.home.HomeUIState
 
 // todo add the states :)
 @OptIn(ExperimentalFoundationApi::class)

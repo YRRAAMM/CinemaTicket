@@ -7,4 +7,9 @@
     <string name="search">search</string>
     <string name="booking">Booking</string>
     <string name="buy_tickets">Buy Tickets</string>
+    <string name="available">Available</string>
+    <string name="taken">Taken</string>
+    <string name="selected">Selected</string>
+    <string name="_10">$10</string>
+    <string name="_1_tickets">1 Tickets</string>
 </resources>

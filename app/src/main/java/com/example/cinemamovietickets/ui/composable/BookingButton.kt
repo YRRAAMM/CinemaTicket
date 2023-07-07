@@ -15,14 +15,13 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cinemamovietickets.R
 import com.example.cinemamovietickets.ui.theme.Orange80
 
 @Composable
-fun ButtonBooking(stringId: Int, width: Int, onClickEvent: () -> Unit) {
+fun OrangeButton(stringId: Int, onClickEvent: () -> Unit) {
     Button(
         onClick = onClickEvent, modifier = Modifier
             .height(55.dp)
@@ -43,10 +42,4 @@ fun ButtonBooking(stringId: Int, width: Int, onClickEvent: () -> Unit) {
             modifier = Modifier.padding(start = 8.dp)
         )
     }
-}
-
-@Preview
-@Composable
-fun PreviewButton() {
-    ButtonBooking(R.string.booking, 154, {  })
 }

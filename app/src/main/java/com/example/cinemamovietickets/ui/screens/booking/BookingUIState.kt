@@ -1,4 +1,4 @@
-package com.example.cinemamovietickets.viewmodels.booking
+package com.example.cinemamovietickets.ui.screens.booking
 
 import com.example.cinemamovietickets.data.model.MoviesModel
 

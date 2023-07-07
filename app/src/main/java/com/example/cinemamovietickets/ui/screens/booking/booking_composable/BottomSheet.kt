@@ -25,10 +25,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cinemamovietickets.R
-import com.example.cinemamovietickets.ui.composable.ButtonBooking
+import com.example.cinemamovietickets.ui.composable.OrangeButton
 import com.example.cinemamovietickets.ui.composable.OutlineButton
 import com.example.cinemamovietickets.ui.composable.verticalSpacer.VerticalSpacer32
-import com.example.cinemamovietickets.viewmodels.booking.BookingUIState
+import com.example.cinemamovietickets.ui.screens.booking.BookingUIState
 
 @Composable
 fun BottomSheet(
@@ -83,7 +83,6 @@ private fun BottomSheetContent(state: BookingUIState, onButtonClicked: () -> Uni
             items(state.movie!!.movieTypes) {type ->
                 OutlineButton(modifier = Modifier.padding(end = 8.dp), text = type) {}
             }
-
         }
 
         LazyRow(
@@ -107,7 +106,7 @@ private fun BottomSheetContent(state: BookingUIState, onButtonClicked: () -> Uni
 
             VerticalSpacer32()
 
-            ButtonBooking(stringId = R.string.booking, width = 154) {
+            OrangeButton(stringId = R.string.booking) {
                 onButtonClicked()
             }
         }

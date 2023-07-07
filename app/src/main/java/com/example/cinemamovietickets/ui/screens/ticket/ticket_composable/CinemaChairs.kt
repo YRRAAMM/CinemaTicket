@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.material3.Icon
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -24,13 +23,11 @@ import com.example.cinemamovietickets.ui.theme.Gray
 fun CinemaChairs() {
     LazyVerticalGrid(
         modifier = Modifier.fillMaxWidth(),
-        contentPadding = PaddingValues(32.dp),
+        contentPadding = PaddingValues(24.dp),
         verticalArrangement = Arrangement.spacedBy(32.dp),
         columns = GridCells.Fixed(count = 3)
     ) {
-        itemsIndexed(
-            listOf("", "", "", "", "", "", "", "", "",)
-        ) { index: Int, item: String ->
+        items(9) { index->
             when (index % 3) {
                 0 -> ChairItem(10f)
                 1 -> ChairItem(0f, 10f)

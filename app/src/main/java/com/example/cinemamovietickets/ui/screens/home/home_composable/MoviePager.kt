@@ -17,7 +17,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
 import coil.compose.rememberAsyncImagePainter
-import com.example.cinemamovietickets.viewmodels.home.HomeUIState
+import com.example.cinemamovietickets.ui.screens.home.HomeUIState
 import kotlin.math.absoluteValue
 
 @OptIn(ExperimentalFoundationApi::class)
