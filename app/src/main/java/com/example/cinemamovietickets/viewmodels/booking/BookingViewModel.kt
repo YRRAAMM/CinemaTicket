@@ -24,11 +24,8 @@ class BookingViewModel @Inject constructor(
         _state.update { state ->
             state.copy(
                 imageId = args.imageId.toString().toInt(),
-                image = "${
-                    MoviesData.newShowingMovies().find {
-                        it.id == args.imageId.toString().toInt()
-                    }?.imageUrl
-                }"
+                movie = MoviesData.newShowingMovies()[args.imageId.toString().toInt()],
+
             )
         }
     }

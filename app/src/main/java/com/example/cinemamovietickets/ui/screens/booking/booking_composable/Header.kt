@@ -27,10 +27,10 @@ fun Header(
     modifier: Modifier = Modifier,
     onClickExit: () -> Unit,
 ) {
-    Box(modifier = modifier.aspectRatio(4f / 5f)) {
+    Box(modifier = modifier.aspectRatio(4f / 5.5f), contentAlignment = Alignment.TopEnd) {
         Image(
             modifier = Modifier.fillMaxSize(),
-            painter = rememberAsyncImagePainter(model = state.image),
+            painter = rememberAsyncImagePainter(model = state.movie?.imageUrl),
             contentDescription = "avatar",
             contentScale = ContentScale.Crop
         )

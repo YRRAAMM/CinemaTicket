@@ -12,7 +12,7 @@ import androidx.compose.ui.unit.sp
 import com.example.cinemamovietickets.ui.composable.Circle
 
 @Composable
-fun CircleWithText(
+fun ChairState(
     text: String = "",
     circleTint: Color
 ) {

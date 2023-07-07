@@ -5,4 +5,6 @@
     <string name="profile">profile</string>
     <string name="ticket">ticket</string>
     <string name="search">search</string>
+    <string name="booking">Booking</string>
+    <string name="buy_tickets">Buy Tickets</string>
 </resources>

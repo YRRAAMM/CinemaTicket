@@ -19,8 +19,6 @@ import com.example.cinemamovietickets.viewmodels.booking.BookingUIState
 import com.example.cinemamovietickets.viewmodels.booking.BookingViewModel
 
 // todo fix the bottom sheet
-// todo fix the button look
-// todo handle the nav
 
 @Composable
 fun BookingScreen(
@@ -42,7 +40,6 @@ private fun BookingContent(state: BookingUIState, closeButton: () -> Unit, onCli
     ConstraintLayout(modifier = Modifier.fillMaxSize()) {
         val (header , bottomSheet) = createRefs()
 
-        val guideLine = createGuidelineFromTop(0.75f)
         Header(
             state = state,
             modifier = Modifier.constrainAs(header){
@@ -52,7 +49,11 @@ private fun BookingContent(state: BookingUIState, closeButton: () -> Unit, onCli
 
             }. padding(top = 8.dp)
         ) { closeButton() }
+
+        val guideLine = createGuidelineFromTop(0.80f)
+
         BottomSheet(
+            state = state,
             modifier = Modifier.constrainAs(bottomSheet){
                 top.linkTo(guideLine)
                 bottom.linkTo(parent.bottom)

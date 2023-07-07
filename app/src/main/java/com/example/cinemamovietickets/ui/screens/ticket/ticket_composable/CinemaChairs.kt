@@ -19,14 +19,13 @@ import androidx.compose.ui.unit.dp
 import androidx.constraintlayout.compose.ConstraintLayout
 import com.example.cinemamovietickets.R
 import com.example.cinemamovietickets.ui.theme.Gray
-import com.example.cinemamovietickets.ui.theme.Orange80
 
 @Composable
 fun CinemaChairs() {
     LazyVerticalGrid(
         modifier = Modifier.fillMaxWidth(),
-        contentPadding = PaddingValues(16.dp),
-        verticalArrangement = Arrangement.spacedBy(16.dp),
+        contentPadding = PaddingValues(32.dp),
+        verticalArrangement = Arrangement.spacedBy(32.dp),
         columns = GridCells.Fixed(count = 3)
     ) {
         itemsIndexed(
@@ -34,7 +33,7 @@ fun CinemaChairs() {
         ) { index: Int, item: String ->
             when (index % 3) {
                 0 -> ChairItem(10f)
-                1 -> ChairItem(0f, offset = 9f)
+                1 -> ChairItem(0f, 10f)
                 2 -> ChairItem(-10f)
             }
         }
@@ -64,7 +63,7 @@ private fun ChairItem(
                 },
             painter = painterResource(id = R.drawable.chair),
             contentDescription = "Chair",
-            tint = Orange80
+            tint = Color.White
         )
         Icon(
             modifier = Modifier

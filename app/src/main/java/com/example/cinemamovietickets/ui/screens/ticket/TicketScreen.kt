@@ -1,10 +1,12 @@
 package com.example.cinemamovietickets.ui.screens.ticket
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -17,24 +19,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
+import coil.compose.rememberAsyncImagePainter
 import com.example.cinemamovietickets.ui.composable.ExitIcon
+import com.example.cinemamovietickets.ui.navigation.Screen
 import com.example.cinemamovietickets.ui.screens.ticket.ticket_composable.BottomSheet
 import com.example.cinemamovietickets.ui.screens.ticket.ticket_composable.CinemaChairs
-import com.example.cinemamovietickets.ui.screens.ticket.ticket_composable.CircleWithText
-import com.example.cinemamovietickets.ui.screens.ticket.ticket_composable.TicketHeader
+import com.example.cinemamovietickets.ui.screens.ticket.ticket_composable.ChairState
 import com.example.cinemamovietickets.ui.theme.BlackBackground
 import com.example.cinemamovietickets.ui.theme.Gray
 import com.example.cinemamovietickets.ui.theme.Orange80
-import com.example.cinemamovietickets.viewmodels.booking.BookingViewModel
-import com.example.cinemamovietickets.viewmodels.ticket.TicketUIState
+import com.example.cinemamovietickets.viewmodels.ticket.uistate.TicketUIState
 import com.example.cinemamovietickets.viewmodels.ticket.TicketViewModel
-
-// todo fix the bottom sheet
-// todo fix the chairs
-// todo fix the sizes
-// todo handle the nav
-// todo take the data items and logic from the old project
-// todo handle the states
 
 @Composable
 fun TicketScreen(
@@ -43,23 +38,40 @@ fun TicketScreen(
     viewModel: TicketViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsState()
-    TicketContent(state, modifier)
+    TicketContent( modifier, state) {
+        navController.popBackStack(Screen.Home.screen_route, false)
+    }
 }
 
 @Composable
 fun TicketContent(
-    state: TicketUIState,
     modifier: Modifier = Modifier,
+    state: TicketUIState,
+    onExitClicked: () -> Unit,
 ) {
     Column(
         modifier = modifier
             .fillMaxSize()
             .background(BlackBackground)
     ) {
-        ExitIcon() {
 
+        Spacer(modifier = Modifier.weight(1f))
+
+        ExitIcon(
+            modifier = Modifier.padding(start = 16.dp)
+        ) {
+            onExitClicked()
         }
-        TicketHeader(state)
+
+        Image(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 8.dp, bottom = 16.dp)
+                .fillMaxHeight(0.15f),
+            painter = rememberAsyncImagePainter(model = state.image),
+            contentDescription = "Header Image",
+        )
+        
         CinemaChairs()
 
         Row(
@@ -68,13 +80,13 @@ fun TicketContent(
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceAround
         ) {
-            CircleWithText(text = "Available", circleTint = Color.White)
-            CircleWithText(text = "Taken", circleTint = Gray)
-            CircleWithText(text = "Selected", circleTint = Orange80)
+            ChairState(text = "Available", circleTint = Color.White)
+            ChairState(text = "Taken", circleTint = Gray)
+            ChairState(text = "Selected", circleTint = Orange80)
         }
-        Spacer(modifier = Modifier.weight(1f))
 
-        BottomSheet()
+        BottomSheet(state)
+
     }
 
 

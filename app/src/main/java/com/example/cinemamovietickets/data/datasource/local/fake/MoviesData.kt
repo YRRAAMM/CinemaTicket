@@ -14,32 +14,26 @@ object MoviesData {
             ),
             MoviesModel(
                 id = 1,
-                imageUrl = "https://m.media-amazon.com/images/I/71lADxngTWS._AC_SL1050_.jpg",
-                movieName = "",
-                movieTime = "",
-                movieTypes = listOf("", "", ""),
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BMTU2NjA1ODgzMF5BMl5BanBnXkFtZTgwMTM2MTI4MjE@._V1_FMjpg_UY480_.jpg",
+                movieName = "John Wick",
+                movieTime = "1h 23m",
+                movieTypes = listOf("Action", "Crime", "Thriller"),
             ),
             MoviesModel(
                 id = 2,
-                imageUrl = "https://files.ekmcdn.com/allwallpapers/images/captain-marvel-epic-61x91-5cm-movie-poster-31596-1-p.jpg?v=599d4741-9423-4652-b292-e55e0354b409",
-                movieName = "",
-                movieTime = "",
-                movieTypes = listOf("", "", ""),
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BMTIzMDc4MzA2Ml5BMl5BanBnXkFtZTcwODU0MzA3MQ@@._V1_FMjpg_UX510_.jpg",
+                movieName = "The Dark Knight",
+                movieTime = "2h 13m",
+                movieTypes = listOf("Action", "Crime", "Drama"),
             ),
             MoviesModel(
                 id = 3,
-                imageUrl = "https://s.yimg.com/ny/api/res/1.2/KAcBiAjfBGsEsOhT0fbw7w--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTEzOTE7Y2Y9d2VicA--/https://media.zenfs.com/en/homerun/feed_manager_auto_publish_494/d05a3f087fa57f6d41b865d53a42a5f5",
-                movieName = "",
-                movieTime = "",
-                movieTypes = listOf("", "", ""),
+                imageUrl = "https://m.media-amazon.com/images/M/MV5BZTAwMzAxNDEtM2FiNC00ODY2LTk1ZTctOTkyNmJlMmE0Y2IzXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_FMjpg_UY703_.jpg",
+                movieName = "Saving Private Ryan",
+                movieTime = "5h 23m",
+                movieTypes = listOf("Drama", "War"),
             ),
-            MoviesModel(
-                id = 4,
-                imageUrl = "https://m.media-amazon.com/images/I/81F5PF9oHhL._AC_SY879_.jpg",
-                movieName = "",
-                movieTime = "",
-                movieTypes = listOf("", "", ""),
-            ),
+            
         )
     }
 }

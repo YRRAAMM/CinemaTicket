@@ -6,7 +6,6 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.material3.Card
@@ -45,7 +44,7 @@ fun MoviePager(
                         ((pagerState.currentPage - page) + pagerState.currentPageOffsetFraction).absoluteValue
 
                     alpha = lerp(
-                        start = 0.7f,
+                        start = 0.90f,
                         stop = 1f,
                         fraction = 1f - pageOffset.coerceIn(0f, 1f)
                     )

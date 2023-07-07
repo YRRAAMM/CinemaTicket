@@ -5,8 +5,6 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
@@ -25,19 +23,20 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cinemamovietickets.R
-import com.example.cinemamovietickets.ui.composable.ImageButton
+import com.example.cinemamovietickets.ui.composable.ButtonBooking
+import com.example.cinemamovietickets.ui.composable.verticalSpacer.VerticalSpacer32
 import com.example.cinemamovietickets.ui.theme.Gray
-import com.example.cinemamovietickets.ui.theme.Orange80
+import com.example.cinemamovietickets.viewmodels.ticket.uistate.TicketUIState
 
 @Composable
-fun BottomSheet() {
+fun BottomSheet(state: TicketUIState) {
 
     var selectedDate by remember { mutableStateOf("") }
     var selectedTime by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
-            .fillMaxSize()
+            .fillMaxWidth()
             .padding(top = 8.dp)
             .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp))
             .background(Color.White)
@@ -46,7 +45,7 @@ fun BottomSheet() {
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             contentPadding = PaddingValues(top = 32.dp, end = 16.dp, start = 16.dp, bottom = 16.dp)
         ) {
-            items((14..31).toList()) { item ->
+            items((14..30).toList()) { item ->
                 DateItem(date = item.toString(), isSelected = selectedDate == item.toString()) { date ->
                     selectedDate = if (selectedDate == date) "" else date
                 }
@@ -57,18 +56,18 @@ fun BottomSheet() {
             horizontalArrangement = Arrangement.spacedBy(8.dp),
             contentPadding = PaddingValues(horizontal = 16.dp)
         ) {
-            items(listOf("10:30", "11:30", "12:30", "13:30", "14:30", "15:30", "16:30")) { item ->
+            items(state.timeList) { item ->
                 TimeItem(time = item, isSelected = selectedTime == item) { date ->
                     selectedTime = if (selectedTime == date) "" else date
                 }
             }
         }
 
-        Spacer(modifier = Modifier.weight(1f))
+        VerticalSpacer32()
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(36.dp),
             horizontalArrangement = Arrangement.SpaceBetween,
             verticalAlignment = Alignment.CenterVertically
         ) {
@@ -76,11 +75,9 @@ fun BottomSheet() {
                 Text(text = "$100", color = Color.Black, fontSize = 28.sp)
                 Text(text = "4 Tickets", color = Gray, fontSize = 12.sp)
             }
-            ImageButton(
-                painter = R.drawable.ic_calendar,
-                backgroundColor = Orange80,
-                text = "Buy tickets"
-            ) {}
+            ButtonBooking(stringId = R.string.buy_tickets, width = 154 ) {
+
+            }
         }
     }
 }

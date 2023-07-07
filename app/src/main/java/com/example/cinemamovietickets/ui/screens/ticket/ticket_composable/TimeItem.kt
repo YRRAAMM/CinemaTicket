@@ -5,6 +5,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -12,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.cinemamovietickets.ui.theme.Gray
@@ -25,17 +27,27 @@ fun TimeItem(
 
     Column(
         modifier = Modifier
-            .clip(RoundedCornerShape(16.dp))
+            .size(64.dp, 40.dp)
+            .clip(RoundedCornerShape(18.dp))
             .clickable { onTimeSelectedListener(time) }
             .background(if (isSelected) Gray else Color.Transparent)
-            .border(0.1.dp, Gray, RoundedCornerShape(16.dp)),
+            .border(0.1.dp, Gray, RoundedCornerShape(18.dp)),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         Text(
             text = time,
             fontSize = 16.sp,
             modifier = Modifier.padding(8.dp),
             color = if (isSelected) Color.White else Gray
         )
+
     }
+}
+
+@Preview
+@Composable
+fun PreviewTime() {
+    TimeItem("10:00", isSelected = true, onTimeSelectedListener = {})
+    
 }

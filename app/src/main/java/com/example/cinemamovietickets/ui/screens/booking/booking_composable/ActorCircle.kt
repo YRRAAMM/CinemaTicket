@@ -11,7 +11,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.rememberAsyncImagePainter
 
 @Composable
-fun ActorItem(
+fun ActorCircle(
     imageUrl: String,
     modifier: Modifier = Modifier
 ) {
