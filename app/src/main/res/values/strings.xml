@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">CinemaMovieTickets</string>
+    <string name="movie_description">Professor Albus Dubledore knows the powerful, dark wizard Gellert Grindelwald is moving to seize contrl of the wizarding world. Unable to stop him...</string>
+    <string name="home">home</string>
+    <string name="profile">profile</string>
+    <string name="ticket">ticket</string>
+    <string name="search">search</string>
+</resources>
